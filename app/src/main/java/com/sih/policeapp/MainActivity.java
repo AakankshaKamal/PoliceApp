@@ -15,6 +15,7 @@ import com.google.android.material.navigation.NavigationView;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.sih.policeapp.Activities.Beats;
+import com.sih.policeapp.Activities.wanted_activity;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -31,7 +32,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         setUpToolBar();
         mRootRef = FirebaseDatabase.getInstance().getReference();
-        mRootRef.child("Anshaj").child("asdf").setValue("asdfghjkl");
+       // mRootRef.child("Anshaj").child("asdf").setValue("asdfghjkl");
         navigationView = findViewById(R.id.clickable_menu);
         navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
             @Override
@@ -44,6 +45,11 @@ public class MainActivity extends AppCompatActivity {
                 if(menuItem.getItemId() == R.id.add_crime){
                     Intent intent = new Intent(MainActivity.this,AddCriminalActivity.class);
                     startActivity(intent);
+                }
+                if(menuItem.getItemId()==R.id.wanted_list)
+                {Intent intent = new Intent(MainActivity.this, wanted_activity.class);
+                    startActivity(intent);
+
                 }
                 return false;
             }
